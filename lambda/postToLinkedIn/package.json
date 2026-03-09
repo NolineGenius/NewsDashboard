@@ -1,0 +1,9 @@
+{
+  "name": "newsdash-post-to-linkedin",
+  "version": "1.0.0",
+  "description": "Posts content to LinkedIn via Ayrshare",
+  "main": "index.js",
+  "dependencies": {
+    "firebase-admin": "^13.0.0"
+  }
+}

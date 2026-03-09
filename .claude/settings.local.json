@@ -1,0 +1,33 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python3:*)",
+      "Bash(npx create-next-app:*)",
+      "Bash(npx create-next-app@latest:*)",
+      "Bash(npm install:*)",
+      "Bash(npm view:*)",
+      "Bash(npm run build:*)",
+      "Bash(npm run lint:*)",
+      "Bash(npx next dev:*)",
+      "Bash(npm run dev:*)",
+      "Bash(taskkill:*)",
+      "Bash(powershell -Command:*)",
+      "Bash(unzip:*)",
+      "WebFetch(domain:www.ayrshare.com)",
+      "WebFetch(domain:www.postman.com)",
+      "Bash(npx next build)",
+      "Bash(npx next lint)",
+      "Bash(npx eslint .)",
+      "Bash(npx eslint app/app/dashboard/monitoring/page.tsx)",
+      "Bash(npx eslint ./app/dashboard/monitoring/page.tsx)",
+      "WebFetch(domain:apify.com)",
+      "WebFetch(domain:github.com)",
+      "Bash(npx eslint ./app/dashboard/monitoring/page.tsx ./app/api/monitor/scrape/route.ts)",
+      "Bash(ls -la \"C:\\\\Users\\\\Lindor\\\\OneDrive\\\\Dokumente\\\\923b\\\\WebseitenProjekte\\\\NewsDashboard_New\\\\app\\\\app\\\\api\"\" | grep -E \"^d \")",
+      "Bash(xargs grep -l \"generateLinkedInPost\")",
+      "Bash(xargs grep -l \"Dialog\\\\|Modal\\\\|Sheet\")",
+      "Bash(xargs grep -l \"generate\\\\|Generieren\")",
+      "Bash(timeout 8 tail -f \"C:/Users/Lindor/AppData/Local/Temp/claude/c--Users-Lindor-OneDrive-Dokumente-923b-WebseitenProjekte-NewsDashboard-New/tasks/bcnvqlmvs.output\")"
+    ]
+  }
+}
