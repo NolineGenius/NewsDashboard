@@ -1,9 +1,0 @@
-{
-  "name": "newsdash-scrape-linkedin-posts",
-  "version": "1.0.0",
-  "description": "Scrapes LinkedIn profile posts via Apify and saves to Firestore",
-  "main": "index.js",
-  "dependencies": {
-    "firebase-admin": "^13.0.0"
-  }
-}

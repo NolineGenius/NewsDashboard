@@ -1,9 +1,0 @@
-{
-  "name": "newsdash-generate-jwt",
-  "version": "1.0.0",
-  "description": "Generates a JWT URL for LinkedIn OAuth via Ayrshare",
-  "main": "index.js",
-  "dependencies": {
-    "firebase-admin": "^13.0.0"
-  }
-}

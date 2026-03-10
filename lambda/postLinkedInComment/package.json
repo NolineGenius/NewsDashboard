@@ -1,9 +1,0 @@
-{
-  "name": "newsdash-post-linkedin-comment",
-  "version": "1.0.0",
-  "description": "Posts comments to LinkedIn via Ayrshare",
-  "main": "index.js",
-  "dependencies": {
-    "firebase-admin": "^13.0.0"
-  }
-}

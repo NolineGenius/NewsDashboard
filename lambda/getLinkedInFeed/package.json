@@ -1,9 +1,0 @@
-{
-  "name": "newsdash-get-linkedin-feed",
-  "version": "1.0.0",
-  "description": "Fetches LinkedIn post history via Ayrshare",
-  "main": "index.js",
-  "dependencies": {
-    "firebase-admin": "^13.0.0"
-  }
-}

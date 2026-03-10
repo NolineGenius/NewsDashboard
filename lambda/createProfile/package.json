@@ -1,9 +1,0 @@
-{
-  "name": "newsdash-create-profile",
-  "version": "1.0.0",
-  "description": "Creates an Ayrshare sub-profile and stores it in Firebase",
-  "main": "index.js",
-  "dependencies": {
-    "firebase-admin": "^13.0.0"
-  }
-}
