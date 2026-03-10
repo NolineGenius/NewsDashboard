@@ -42,6 +42,7 @@ export default function PostsPage() {
   const [copiedId, setCopiedId] = useState<string | null>(null);
   const [saving, setSaving] = useState(false);
   const [postingId, setPostingId] = useState<string | null>(null);
+  const [postConfirmTarget, setPostConfirmTarget] = useState<GeneratedPost | null>(null);
 
   // Deep-link support: ?postId=xxx
   const searchParams = useSearchParams();
@@ -338,7 +339,7 @@ export default function PostsPage() {
                         {!post.linkedinPostUrl ? (
                           <Button
                             size="sm"
-                            onClick={() => handlePostToLinkedIn(post)}
+                            onClick={() => setPostConfirmTarget(post)}
                             disabled={!!postingId}
                             className="ml-auto bg-[#0A66C2] hover:bg-[#004182] text-white"
                           >
@@ -379,6 +380,22 @@ export default function PostsPage() {
         variant="destructive"
         loading={saving}
         onConfirm={handleDelete}
+      />
+
+      <ConfirmDialog
+        open={!!postConfirmTarget}
+        onOpenChange={(open) => !open && setPostConfirmTarget(null)}
+        title="Posten?"
+        description="Möchten Sie diesen Beitrag jetzt auf LinkedIn veröffentlichen?"
+        confirmLabel="Ja"
+        cancelLabel="Nein"
+        loading={!!postingId}
+        onConfirm={() => {
+          if (postConfirmTarget) {
+            setPostConfirmTarget(null);
+            handlePostToLinkedIn(postConfirmTarget);
+          }
+        }}
       />
     </>
   );

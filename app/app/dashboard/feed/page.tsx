@@ -8,6 +8,7 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Input } from "@/components/ui/input";
 import { Skeleton } from "@/components/ui/skeleton";
+import { ConfirmDialog } from "@/components/ui/confirm-dialog";
 import { useProfiles } from "@/contexts/profile-context";
 import { useAuth } from "@/contexts/auth-context";
 import { toast } from "@/components/ui/toast";
@@ -56,6 +57,7 @@ export default function FeedPage() {
   const [isUploading, setIsUploading] = useState(false);
   const [uploadedImageUrl, setUploadedImageUrl] = useState<string | null>(null);
   const [additionalInstructions, setAdditionalInstructions] = useState("");
+  const [showPostConfirm, setShowPostConfirm] = useState(false);
 
   // Deep-link support: ?articleId=xxx
   const searchParams = useSearchParams();
@@ -728,7 +730,7 @@ export default function FeedPage() {
                         </Button>
                         <Button
                           size="sm"
-                          onClick={handlePostToLinkedIn}
+                          onClick={() => setShowPostConfirm(true)}
                           disabled={isPosting}
                           className="bg-[#0A66C2] hover:bg-[#004182] text-white"
                         >
@@ -781,6 +783,20 @@ export default function FeedPage() {
           )}
         </div>
       </div>
+
+      <ConfirmDialog
+        open={showPostConfirm}
+        onOpenChange={setShowPostConfirm}
+        title="Posten?"
+        description="Möchten Sie diesen Beitrag jetzt auf LinkedIn veröffentlichen?"
+        confirmLabel="Ja"
+        cancelLabel="Nein"
+        loading={isPosting}
+        onConfirm={() => {
+          setShowPostConfirm(false);
+          handlePostToLinkedIn();
+        }}
+      />
     </>
   );
 }

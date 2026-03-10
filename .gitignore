@@ -9,3 +9,5 @@ next-env.d.ts
 serviceAccount.json
 *.zip
 *.docx
+lambda/
+inspo/

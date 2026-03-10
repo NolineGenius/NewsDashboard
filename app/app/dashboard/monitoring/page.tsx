@@ -102,6 +102,7 @@ export default function MonitoringPage() {
   const [isGenerating, setIsGenerating] = useState(false);
   const [copied, setCopied] = useState(false);
   const [isPostingComment, setIsPostingComment] = useState(false);
+  const [showCommentConfirm, setShowCommentConfirm] = useState(false);
 
   // ─── Data Fetching ────────────────────────────────────────────
 
@@ -704,7 +705,7 @@ export default function MonitoringPage() {
                 );
               }}
               onCopyComment={handleCopyComment}
-              onPostComment={handlePostComment}
+              onPostComment={() => setShowCommentConfirm(true)}
               isPostingComment={isPostingComment}
             />
           ) : (
@@ -989,6 +990,20 @@ export default function MonitoringPage() {
         variant="destructive"
         loading={saving}
         onConfirm={handleDeleteChannel}
+      />
+
+      <ConfirmDialog
+        open={showCommentConfirm}
+        onOpenChange={setShowCommentConfirm}
+        title="Posten?"
+        description="Möchten Sie diesen Kommentar jetzt auf LinkedIn veröffentlichen?"
+        confirmLabel="Ja"
+        cancelLabel="Nein"
+        loading={isPostingComment}
+        onConfirm={() => {
+          setShowCommentConfirm(false);
+          handlePostComment();
+        }}
       />
     </>
   );

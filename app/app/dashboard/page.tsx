@@ -29,9 +29,16 @@ export default function DashboardPage() {
 
   useEffect(() => {
     if (!user || !activeProfile) {
+      setNewsCount(0);
+      setPostsCount(0);
+      setChannelsCount(0);
+      setRecentNews([]);
+      setRecentPosts([]);
       setLoading(false);
       return;
     }
+
+    setLoading(true);
 
     const fetchData = async () => {
       try {
@@ -39,7 +46,7 @@ export default function DashboardPage() {
           fetch(`/api/feeds/${activeProfile.id}`, {
             headers: { "x-user-id": user.uid },
           }),
-          fetch("/api/posts?limit=5", {
+          fetch(`/api/posts?limit=5&profileId=${activeProfile.id}`, {
             headers: { "x-user-id": user.uid },
           }),
           fetch(`/api/monitor/${activeProfile.id}`, {
